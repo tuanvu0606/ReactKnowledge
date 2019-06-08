@@ -20,7 +20,8 @@ class IdeaForm extends Component {
 		}
 	
 		axios.put(
-			`http://localhost:3001/api/v1/ideas/${this.props.idea.id}`,
+			// `http://localhost:3001/api/v1/ideas/${this.props.idea.id}`,
+			`http://52.221.214.165:4002/api/v1/ideas/${this.props.idea.id}`,
 			{
 				idea: idea
 			})

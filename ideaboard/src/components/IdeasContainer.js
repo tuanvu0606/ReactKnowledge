@@ -16,6 +16,7 @@ class IdeasContainer extends Component {
 	addNewIdea = () => {
 		axios.post(
 			'http://localhost:3001/api/v1/ideas',
+			// 'http://52.221.214.165:4002/api/v1/ideas',
 			{ idea:
 				{
 					title: '',
@@ -38,6 +39,7 @@ class IdeasContainer extends Component {
 
 	componentDidMount() {
 		axios.get('http://localhost:3001/api/v1/ideas.json')
+		// axios.get('http://52.221.214.165:4002/api/v1/ideas.json')
 		.then(response => {
 			console.log(response)
 			this.setState({ideas: response.data})

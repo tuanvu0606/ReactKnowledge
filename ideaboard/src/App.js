@@ -1,15 +1,14 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import IdeasContainer from './components/IdeasContainer'
+import ArticlesContainer from './components/ArticlesContainer'
 import Header from './components/Header'
-
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <IdeasContainer />
+      <ArticlesContainer />
     </div>
   );
 }
