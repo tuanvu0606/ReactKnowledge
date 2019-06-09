@@ -1,5 +1,6 @@
 import React from 'react'
-import { Container, Card, Button, Row, Col } from 'react-bootstrap';
+import { Container, Card, Button, Row, Col } from 'react-bootstrap'
+import ReactMarkdown from 'react-markdown'
 
 const Article = ({article}) =>    
     <Col lg={4}>
@@ -9,7 +10,7 @@ const Article = ({article}) =>
                 <Card.Body>
                     <Card.Title>{article.header}</Card.Title>
                     <Card.Text>
-                        {article.content}
+                        <ReactMarkdown source={article.content} />                        
                     </Card.Text>
                     <Button variant="primary">Go somewhere</Button>
                 </Card.Body>
