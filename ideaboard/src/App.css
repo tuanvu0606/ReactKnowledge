@@ -68,3 +68,14 @@ textarea {
   height: 90px;
   font-size: 11px;
 }
+
+.StickyBar {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 60px !important;
+  background-color: rgb(32, 146, 131) !important;
+  /* padding: 50px !important; */
+  font-size: 20px !important;
+  margin-top: 60px;
+  height: 50px;
+}

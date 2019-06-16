@@ -1,36 +1,79 @@
-import React, { Component } from 'react'
-// import axios from 'axios'
-// import update from 'immutability-helper'
-import { Nav, Navbar, NavItem } from "react-bootstrap"
-import { Form, FormControl, Button } from "react-bootstrap"
+import React from 'react';
+import { MDBContainer, MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse, MDBNavItem, MDBNavLink, MDBIcon } from 'mdbreact';
+import { BrowserRouter as Router,Link } from 'react-router-dom';
 
-class Header extends Component {
-	constructor(props) {
-		super(props)
-		this.state = {			
-		}
-	}
+class FixedNavbarExample extends React.Component {
+  constructor(props) {
+      super(props);
+      this.state = {
+          collapse: false,
+      };
+      this.onClick = this.onClick.bind(this);
+  }
+
+  onClick() {
+    this.setState({
+        collapse: !this.state.collapse,
+      });
+  }
 
   render() {
-    return (
-        <div className="App container">
+    const bgPink = {backgroundColor: '#3CB371'}
+    const container = {height: 300}
+    return(
+      <div>
 
-            <Navbar bg="light" variant="light" fixed="top">
-                <Navbar.Brand href="/">Navbar</Navbar.Brand>
-                <Nav className="mr-auto">
-                    <Nav.Link href="/">Home</Nav.Link>
-                    <Nav.Link href="#features">Features</Nav.Link>
-                    <Nav.Link href="#pricing">Pricing</Nav.Link>
-                </Nav>
-                <Form inline>
-                    <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                    <Button variant="outline-primary">Search</Button>
-                </Form>
-            </Navbar>
-            <br />        
-        </div>
-    )
+          <header>
+          
+            <MDBNavbar style={bgPink} dark expand="md" scrolling fixed="top">
+            <MDBContainer>
+            <Link to={`/`} style={{ textDecoration: 'none' }}>
+              <MDBNavbarBrand >
+                  <strong>Home</strong>
+              </MDBNavbarBrand>
+              </Link>
+              <MDBNavbarToggler onClick={ this.onClick } />
+              <MDBCollapse isOpen = { this.state.collapse } navbar>
+                <MDBNavbarNav left>
+                  <MDBNavItem active>
+                  <Link to={`/`} style={{ textDecoration: 'none' }}>
+                      <MDBNavLink to="#">Contact us</MDBNavLink>
+                      </Link>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                      <MDBNavLink to="#">Features</MDBNavLink>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                      <MDBNavLink to="#">Pricing</MDBNavLink>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                    <MDBNavLink to="#">Options</MDBNavLink>
+                  </MDBNavItem>
+                </MDBNavbarNav>
+                <MDBNavbarNav right>
+                  <MDBNavItem>
+                    <MDBNavLink to="#"><MDBIcon fab icon="facebook-f" /></MDBNavLink>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                    <MDBNavLink to="#"><MDBIcon fab icon="twitter" /></MDBNavLink>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                    <MDBNavLink to="#"><MDBIcon fab icon="instagram" /></MDBNavLink>
+                  </MDBNavItem>
+                </MDBNavbarNav>
+              </MDBCollapse>
+              </MDBContainer>
+            </MDBNavbar>
+          </header>
+        <MDBContainer style={container} className="text-center mt-5 pt-5">
+          <h2>Welcome to Linux</h2>
+          <h5>It will always stay visible on the top, even when you scroll down</h5>
+          <br/>
+        </MDBContainer>
+        
+      </div>
+    );
   }
 }
 
-export default Header
+export default FixedNavbarExample;
